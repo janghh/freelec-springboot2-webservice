@@ -8,6 +8,7 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+//        classpath("org.postgresql:postgresql:42.2.9")
     }
 }
 
@@ -18,7 +19,6 @@ apply plugin: 'io.spring.dependency-management'
 
 group 'com.jojoidu.book'
 version '1.0-SNAPSHOT'
-sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
@@ -26,6 +26,14 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.jetbrains:annotations:19.0.0'
     compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.projectlombok:lombok')
+    compile('org.springframework.boot:spring-boot-starter-data-jpa') // 스프링부트용 JPA
+    compile('com.h2database:h2') // 인메모리 관계형 데이터베이스
+//    compile('org.postgresql:postgresql:42.2.9') // PostgreSQL
+    compile('org.springframework.boot:spring-boot-starter-mustache')
     testCompile('org.springframework.boot:spring-boot-starter-test')
+    compile('org.springframework.boot:spring-boot-starter-oauth2-client') //spring security
+    compile('org.springframework.session:spring-session-jdbc')
 }
